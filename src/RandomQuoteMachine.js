@@ -15,6 +15,7 @@ class RandomQuoteMachine extends React.Component {
         this.randomizer = this.randomizer.bind(this);
     }
 
+
     // Basically gets a random quote object from the loaded API Array and returns the quote and author properties
     randomizer () {
         const randomQuote = this.state.quotesAPI[Math.floor(Math.random() * 102)]
@@ -37,12 +38,33 @@ class RandomQuoteMachine extends React.Component {
 
 
     render () {
+        const bgOne = require('./backgrounds/1.jpg');
+        const bgTwo = require('./backgrounds/2.jpg');
+        const bgThree = require('./backgrounds/3.jpg');
+        const bgFour = require('./backgrounds/4.jpg');
+        const bgFive = require('./backgrounds/5.jpg');
+        const bgSix = require('./backgrounds/6.jpg');
+        const bgSeven = require('./backgrounds/7.jpg');
+        const bgEight = require('./backgrounds/8.jpg');
+        const bgNine = require('./backgrounds/9.jpg');
+
         // Conditional Rendering. If the Array is empty, we didn't fetch the API and load it yet, so we wait, once its true we go.
         if(this.state.quotesAPI.length > 0){
 
             return (
                 <div className="tint">
-                    <div id="quote-box">
+                        <div id="quote-box">
+                        <img alt="pre-load-abstract-img" src={bgOne} />
+                        <img alt="pre-load-abstract-img" src={bgTwo} />
+                        <img alt="pre-load-abstract-img" src={bgThree} />
+                        <img alt="pre-load-abstract-img" src={bgFour} />
+                        <img alt="pre-load-abstract-img" src={bgFive} />
+                        <img alt="pre-load-abstract-img" src={bgSix} />
+                        <img alt="pre-load-abstract-img" src={bgSeven} />
+                        <img alt="pre-load-abstract-img" src={bgEight} />
+                        <img alt="pre-load-abstract-img" src={bgNine} />
+
+
                         <h3 id="text"><FontAwesomeIcon icon={faQuoteLeft}/> {this.state.quote}</h3>
                         <p id="author">- {this.state.author}</p>
                         <a href="https://twitter.com/intent/tweet" id="tweet-quote"><FontAwesomeIcon icon={faTwitterSquare}/></a>
@@ -55,7 +77,7 @@ class RandomQuoteMachine extends React.Component {
             )
         } else {
             return (
-                <div id="loading"></div> // A basic lame loading screen, don't judge me okay?...
+                    <div id="loading"></div>  // A basic lame loading screen, don't judge me okay?...
             )
         }  
     }
