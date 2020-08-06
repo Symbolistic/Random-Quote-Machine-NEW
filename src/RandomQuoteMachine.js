@@ -48,6 +48,9 @@ class RandomQuoteMachine extends React.Component {
         const bgEight = require('./backgrounds/8.jpg');
         const bgNine = require('./backgrounds/9.jpg');
 
+        // Twitter Link
+        let twitterLink = `https://twitter.com/intent/tweet?text="${this.state.quote}" -${this.state.author}`;
+
         // Conditional Rendering. If the Array is empty, we didn't fetch the API and load it yet, so we wait, once its true we go.
         if(this.state.quotesAPI.length > 0){
 
@@ -67,7 +70,7 @@ class RandomQuoteMachine extends React.Component {
 
                         <h3 id="text"><FontAwesomeIcon icon={faQuoteLeft}/> {this.state.quote}</h3>
                         <p id="author">- {this.state.author}</p>
-                        <a href="https://twitter.com/intent/tweet" id="tweet-quote"><FontAwesomeIcon icon={faTwitterSquare}/></a>
+                        <a href={twitterLink} id="tweet-quote"><FontAwesomeIcon icon={faTwitterSquare}/></a>
                         <a href="https://tumblr.com/" id="tumblr"><FontAwesomeIcon icon={faTumblrSquare}/></a>
                         {/* Set a new random quote when this button is clicked */}
                         <button className="btn" id="new-quote" onClick={this.randomizer}>New Quote</button>
